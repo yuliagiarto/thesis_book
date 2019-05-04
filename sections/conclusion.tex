@@ -1,0 +1,10 @@
+\chapter{Conclusions}
+\label{cha:6_conclusions}
+
+Firmware update is an essential process for vendor to manage its manufactured embedded device. Vendor can add new functionality, enchance security or re-configure the device through the new firmware update. Nowadays, automatic firmware update process is more commonly used, but the automatic process over the Internet is not without risk. Thus, a robust and lightweight protocol is needed to ensure the firmware security within the IoT environment. The proposed skipchain-based firmware update framework can enchance the end-to-end security of the firmware during the update process.
+
+We investigate that using skipchain, a permission blockchain platform, can remove the traditional centralized architecture. Skipchain's forward link enables efficient peer-to-peer contract verification. This feature is important for offline embedded devices to verify the given contract without requires it to maintain connection with multiple nodes or storing any blockchain data. Thus, our contribution is provide perfect feature for low-power, connection restricted embedded device to verify the given firmware update contract.
+
+Moreover, our proposed framework uses push method to keep the embedded device up-to-date as soon as the new firmware update release, which can shorten the vulnerable time. Our proposed framework is also proven to be secure and could withstand against firmware modification attack, impersonation attack, replay attack, man-in-the-middle attack, and isolation attack.
+
+The improvement for our implementation can be made in the future works. By using the API to directly call the skipchain service, it is expected to shorten the protocol running time. It is also challenging to implement the peer-to-peer verification API, to verify a given contract.

@@ -1,0 +1,179 @@
+\chapter{Prototype Design and Implementation}
+\label{cha:4_prototypeImplementation}
+\parskip=0ex
+This chapter describes prototype design of our proposed skipchain-based firmware update framework in Section~\ref{sec:prototypedesign}. The implementation of the proposed framework and the result of the experiments described in Section~\ref{sec:prototypeimplementation}. 
+
+\section{Prototype Design}
+\label{sec:prototypedesign}
+
+This section describe two main procedures used in the prototype implementation. First, the key exchange procedure is described in Subsection~\ref{subsec:keyexchange}. Second, encryption and decryption procedures are described in Subsection~\ref{subsec:aes_enc} and Subsection~\ref{subsec:aes_dec} respectively.
+
+\subsection{Key Exchange Procedure}
+\label{subsec:keyexchange}
+
+We have implemented two type of prototypes with two different involved parties. The first prototype design (called the repository-node prototype) simulates protocol between vendor repository as a client and vendor node as a server, this prototype uses the Internet as the information exchange connection protocol. Second prototype (called the gateway-IoT device prototype) implements client-server architecture between gateway and IoT device. The second prototype uses Bluetooth connection to exchange the information. The gateway takes the role of Bluetooth server and the IoT device takes role of Bluetooth client.
+
+\sloppy Both prototypes use Diffie-Hellman~\cite{Diffie:2006:NDC:2263321.2269104} key exchange protocol. The three stages of key exchange protocol are described in Algorithm \ref{client_algo},\ref{server_algo},\ref{client_algo2}. In initiation procedure from Algorithm \ref{client_algo}, \textbf{vendor repository} (in repository-node prototype) uses $WIFI\_CLIENT\_SOCKET$ and \textbf{IoT device} (in gateway-device prototype) uses $BLUETOOTH\_CLIENT\_SOCKET$. The client sets some pre-defined variables used in key exchange procedure. After the pre-setting is complete, the client concatenates the variables as one string message. The message will be concatenated with its hashed-value and send via $CLIENT\_SOCKET$ to the server.
+
+\begin{algorithm}[H]
+	\caption{Client Key Exchange Initiation}\label{client_algo}
+	\begin{algorithmic}[1]
+		\Procedure{Key\_Exchange\_Procedure\_Client}{}
+		\State $SERVER\_ADDRESS:140.118.109.81$
+		\State $INIT\ CLIENT\_SOCKET(HOST:140.118.109.81,PORT:8080)$
+		\State $SET\ ID_v:"vendorA\_repo\_1"$
+		\State $SET\ a:6 \gets secret\_number$
+		\State $SET\ g:5 \gets shared\_base$
+		\State $SET\ p:RANDOM() \gets random\ shared\_prime$
+		\State $SET\ sid:TODAY()$
+		\State $CALCULATE\ A=g^amod(p)$
+		\State $m=(sid||ID_v||g||p||A) \gets message$
+		\State $CLIENT\_SOCKET.SEND(m||SHA256(m))$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+The response for Algorithm ~\ref{client_algo} is described in Algorithm \ref{server_algo}. In the response procedure, \textbf{vendor node} (in repository-node prototype) uses $WIFI\_SERVER\_SOCKET$ and \textbf{gateway} (in gateway-device prototype) uses $BLUETOOTH\_SERVER\_SOCKET$. $SERVER\_SOCKET$ to receive the message from client. The server fetch the concatenated message by using split function. 
+
+After applying the split function to the message, the server gets an array value. If the array length does not match the required length in the procedure (6), the server will terminate the session. Otherwise, server put each array component into different variables. The server will check if the hashed-value in the last array component matches with the hashed-value of newly created variables.
+
+Once the message is verified, the server calculates the shared secret $s$ and uses PBKDF2 \cite{wiki:pbkdf2}. PBKDF2 function is a key derivation function that applies hash-based message authentication code (HMAC) to the input passphrase ($s$) along with a salt value ($sid$). The derivative function repeats many times to produce a derived key, the key can be used as a cryptographic key in subsequent operations. Cryptographic key produced from KDF will be the session key for AES encryption-decryption key in Algorithm \ref{aes_enc},\ref{aes_dec}.
+
+The last step in the server-side is sending the required data $B$, that is used for the $SHARED\_SECRET$ creation in the client-side. Server concatenates the message and its hashed-value, then send it to the client. Key exchange procedure in server-side is ended here, and the server has acquired the shared secret $s$.
+
+\begin{algorithm}[H]
+	\caption{Server Key Exchange Response}\label{server_algo}
+	\begin{algorithmic}[1]
+		\Procedure{Key\_Exchange\_Procedure\_Server}{}
+		\State $INIT\ SERVER\_SOCKET(HOST:127.0.0.1,PORT:8080)$
+		\State $SET\ ID_c:"id\_vendorA\_cothority\_1"$
+		\State $SET\ b:15 \gets SECRET\_NUMBER$
+		\State $SERVER\_SOCKET.LISTEN(1)$
+		\State $DATA = SERVER\_SOCKET.RECEIVE(1)$
+		\If {$(DATA.LENGTH() > 0)$} 
+		\State $ARRAY\_DATA = DATA.SPLIT()$
+		\If{$(ARRAY\_DATA.LENGTH()\ != 6)$}
+		\State $TERMINATE\_SESSION()$
+		\EndIf
+		\State $SET\ sid'=ARRAY\_DATA[0]$
+		\State $SET\ ID_v'=ARRAY\_DATA[1]$
+		\State $SET\ g'=ARRAY\_DATA[2] \gets shared\ base$
+		\State $SET\ p'=ARRAY\_DATA[3] \gets shared\ prime$
+		\State $SET\ A'=ARRAY\_DATA[4] \gets shared\ number$
+		\State $SET\ hash\_value'=ARRAY\_DATA[5]$
+		\If{$(SHA256(sid'||ID_v'||g'||p'||A')\ == hash\_value')$}
+		\State $s=A'^{(b)}mod(p') \gets shared\ secret$
+		\State $k=PBKDF2(s,sid') \gets session\ key$
+		\State $B=g'^{(b)}mod(p') \gets shared\ number$
+		\State $m=(sid'||ID_c||B) \gets message$
+		\State $SERVER\_SOCKET.SEND(m||SHA256.H(m))$
+		\EndIf
+		\Else
+		\State $TERMINATE\_SESSION()$
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+The last procedure in the client-side is described in Algorithm~\ref{client_algo2}. In the first step, the client splits the response message from the server. If the array length matched the required length (4), the client put each array component into different variables then runs verification process to check if the hashed-value in the last array component matches with the hashed-value of newly created variables. If the message is verified, the client calculates the shared secret uses the shared number $B$. In the last step, the client uses PBKDF2 to produce same session key as the server owns.
+
+
+\begin{algorithm}[H]
+	\caption{Client Key Exchange End}\label{client_algo2}
+	\begin{algorithmic}[1]
+		\Procedure{Key\_Exchange\_Procedure\_Client}{}
+		\State $SERVER\_ADDRESS:140.118.109.81$
+		\State $INIT\ CLIENT\_SOCKET(HOST:140.118.109.81,PORT:8080)$
+		\State $DATA = CLIENT\_SOCKET.RECEIVE(1)$
+		\If {$(DATA.LENGTH() > 0)$} 
+		\State $ARRAY\_DATA = DATA.SPLIT()$
+		\If{$(ARRAY\_DATA.LENGTH()\ != 4)$}
+		\State $TERMINATE\_SESSION()$
+		\EndIf
+		\State $SET\ sid'=ARRAY\_DATA[0]$
+		\State $SET\ ID_c'=ARRAY\_DATA[1]$
+		\State $SET\ B'=ARRAY\_DATA[2] \gets shared\ number$
+		\State $SET\ hash\_value'=ARRAY\_DATA[3]$
+		\If{$(SHA256(sid'||ID_c'||B')\ == hash\_value')$}
+		\State $s=B'^{(a)}mod(p') \gets shared\ secret$
+		\State $k=PBKDF2(s,sid') \gets session\ key$
+		\EndIf
+		\Else
+		\State $TERMINATE\_SESSION()$
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{AES Encryption Function}
+\label{subsec:aes_enc}
+
+After both the client and the server have the same session key, they can use the session key as AES symmetric key. Client and server use the AES encryption architecture to send sensitive information. AES encryption function described in Algorithm \ref{aes_enc}. The encryptor need to prepare a symmetric key $k$ to create an AES object. The encryptor uses session id $sid$ as salt and generate nonce value $IV$. The function encrypts the plain text using the nonce $IV$, then concates the hex-value of the result with the hex-value of the salt and the nonce ($HEX(SALT)||HEX(IV)||HEX(AES\_RESULT)$)
+
+\begin{algorithm}[H]
+	\caption{AES Encryption Function}\label{aes_enc}
+	\begin{algorithmic}[1]
+		\Procedure{AES\_Encryption}{}
+		\State $GET\ sid', k \gets defined\ in\ algorithm\ \ref{client_algo2}$
+		\State $INIT\ AES\_ = AESGCM(k)$
+		\State $INIT\ IV = RANDOM() \gets nonce\ value$
+		\State $INIT\ SALT = sid'$
+		\State $INIT\ PLAINTEXT = "this\ is\ message"$
+		\State $\#None\ associated\_data\ need\ to\ be\ authenticated$
+		\State $SET\ AES\_RESULT = AES\_.ENC(IV,PLAINTEXT,None) $
+		\State $SET\ CIPHER = HEX(SALT)||HEX(IV)||HEX(AES\_RESULT)$
+		\State $RETURN\ CIPHER$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{AES Decryption Function}
+\label{subsec:aes_dec}
+
+By using the same symmetric key $k$, the other party can decrypt the cipher text that created using Algorithm \ref{aes_enc}. The AES decryption fucntion is described in Algorithm \ref{aes_dec}. In the first step, the decryptor creates same AES object as encryptor using session key $k$. The decryptor splits the received cipher text, then decode the cipher text using $UNHEX()$ function. Afterward, the decryptor removes the salt from the decoded cipher text and uses the decryption function from the AES object to decrypt the decoded cipher text. The decryption function $AES\_.DEC()$ requires the nonce value ($IV$) and the decoded cipher text and return the plain text as result.
+
+\begin{algorithm}[H]
+	\caption{AES Decryption Function}\label{aes_dec}
+	\begin{algorithmic}[1]
+		\Procedure{AES\_Decryption}{}
+		\State $GET\ k \gets defined\ in\ algorithm\ \ref{client_algo2}$
+		\State $GET\ CIPHER' \gets defined\ in\ algorithm\ \ref{aes_enc}$
+		\State $INIT\ AES\_ = AESGCM(k)$
+		\State $SET\ SALT',IV',CIPHER\_TEXT' = UNHEX(CIPHER'.SPLIT())$
+		\State $INIT\ PLAINTEXT = AES\_.DEC(IV,CIPHER\_TEXT,None)$
+		\State $RETURN\ PLAINTEXT$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Prototype Implementation}
+\label{sec:prototypeimplementation}
+
+For our prototype implementation, we use the following devices:
+\begin{table}[H]
+	\caption{The device specification for each role}
+	\label{tab:devicespec}
+	\begin{center}
+		\begin{tabular}{|l|l|}
+			\hline
+			\textbf{Roles} & \textbf{Device} \\ \hline
+			\textbf{IoT Device} & \begin{tabular}{l@{}l@{}l@{}l@{}}  \textbf{Raspberry Pi 3} with the following specification: \\ - CPU: ARM Cortex 1,4GHz \\ - RAM: 1GB SRAM \\ - Bluetooth version: 4.0\end{tabular} \\ \hline
+			\textbf{Vendor Repository} & \begin{tabular}{l@{}l@{}l@{}l@{}l@{}}  \textbf{MSI GL62 laptop} with the following specification: \\ - CPU: Intel i7 2,6GHz \\ - RAM: 16GB \\ - SSD: 512GB \\ - Bluetooth version: 4.0\end{tabular} \\ \hline
+			\textbf{ Vendor Node and Gateway} & \begin{tabular}{l@{}l@{}l@{}l@{}}  \textbf{Asus PC} with the following specification: \\ - CPU: Intel i5 2,3GHz \\ - RAM: 12GB  \\ - Bluetooth version: 4.0\end{tabular} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+%\begin{enumerate}
+%	\item MSI GL62 laptop as vendor repository equipped with Intel i7 2,6GHz, 16 GB RAM, SSD 512MB.
+%	\item Asus PC as vendor node and gateway equipped with Intel i5 2,3GHz, 12 GB RAM, HDD, and Bluetooth 4.0 dongle. This PC run 4 virtual device as active node and 1 virtual device as passive node (gateway function) to simulate the skipchain environment.
+%	\item Raspberry Pi 3 as IoT device, equipped with CPU: ARM Cortex 1,4GHz, 1GB SRAM, Integrated Bluetooth 4.0.
+%\end{enumerate}
+We use Python as programming language and run the python script in each device. The skipchain node within the network is created using the github code from the Chainiac paper \cite{chainiac}. As the open source code for the skipchain is still under hard development, we could not find a more suitable API by the time of this thesis writing. As a result, we use python library (\textbf{subprocess}) to access the skipchain via terminal. 
+
+We conduct two experiments on the implemented prototype as follow:
+\begin{enumerate}
+	\item First, we perform experiment between vendor repository and vendor node using the Internet connection. The average running time after running the first experiment 10 times is one second. The process of putting the data to the skipchain takes $90\%$ of the running time.
+	\item Second, we conduct experiment between gateway and IoT device using Bluetooth connection. Average running time after running the second experiment 10 times is one second. It takes 50 microseconds to send 10 megabytes of firmware data over the Bluetooth connection.
+\end{enumerate} 

@@ -1,0 +1,23 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Firmware Over The Air (FOTA) process diagram\relax }}{9}{figure.caption.8}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Iterating nonce that make hashes value begin with a number of zero value\nobreakspace {}\cite {proofofwork}\relax }}{11}{figure.caption.9}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Nakamoto's chaining block diagram\nobreakspace {}\ref {fig:3_blockchainning}\relax }}{12}{figure.caption.10}% 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Skiplist structure with span between two same-level nodes\nobreakspace {}\ref {fig:4_skipliststructure}\relax }}{13}{figure.caption.11}% 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces (a) There is a node with height of two between two nodes with height of three. (b) There are two nodes with height of one between two nodes of height of two\nobreakspace {}\cite {deterministicSkiplist}\relax }}{13}{figure.caption.12}% 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Skipchain structure\nobreakspace {}\cite {chainiac}\relax }}{15}{figure.caption.13}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces CoSi protocol architecture\nobreakspace {}\cite {cosigning}\relax }}{21}{figure.caption.14}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Firmware Over-the-Skipchain (FOTS) process diagram\relax }}{23}{figure.caption.15}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Skipblock structure diagram\relax }}{24}{figure.caption.16}% 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Firmware update verification process\relax }}{26}{figure.caption.17}% 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Firmware update peer-to-peer verification process\relax }}{28}{figure.caption.18}% 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Peer-to-peer verification process\relax }}{29}{figure.caption.19}% 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Pre-installed skipblock diagram\relax }}{30}{figure.caption.20}% 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Firmware update verification protocol\relax }}{32}{figure.caption.22}% 
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Firmware update peer-to-peer verification protocol\relax }}{35}{figure.caption.23}% 
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Firmware update execution protocol\relax }}{37}{figure.caption.24}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Scyther tool verification result\relax }}{54}{figure.caption.28}% 
+\addvspace {10\p@ }

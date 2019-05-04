@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: my_ntust_thesis.aux
+The style file: ieeetr.bst
+Database file #1: my_bib.bib
+Warning--you've nested cross references--entry "conf/ndss/2013"
+refers to entry "conf/ndss/2013", which also refers to something
+Warning--I didn't find a database entry for "iotsecurity"
+Warning--I didn't find a database entry for "Gajjar:2017:MSC:3110857"
+Warning--empty journal in deafnessAndHearingLoss
+Warning--empty publisher in WendySandler:2006
+Warning--empty booktitle in Rashedul16
+Warning--empty booktitle in Byung16
+Warning--empty booktitle in nisyncandnyaggre
+(There were 8 warnings)
