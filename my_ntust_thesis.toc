@@ -1,39 +1,18 @@
 \contentsline {chapter}{Recommendation Letter}{i}{figure.caption.1}% 
 \contentsline {chapter}{Approval Letter}{ii}{figure.caption.1}% 
 \contentsline {chapter}{Abstract}{iii}{chapter*.2}% 
-\contentsline {chapter}{Acknowledgements}{iv}{chapter*.3}% 
-\contentsline {chapter}{Contents}{v}{chapter*.3}% 
-\contentsline {chapter}{List of Figures}{viii}{chapter*.4}% 
-\contentsline {chapter}{List of Tables }{x}{chapter*.5}% 
-\contentsline {chapter}{List of Pseudocodes}{xi}{chapter*.6}% 
+\contentsline {chapter}{Acknowledgements}{v}{chapter*.3}% 
+\contentsline {chapter}{Contents}{vi}{chapter*.3}% 
+\contentsline {chapter}{List of Figures}{vii}{chapter*.4}% 
+\contentsline {chapter}{List of Tables }{viii}{chapter*.5}% 
+\contentsline {chapter}{List of Pseudocodes}{ix}{chapter*.6}% 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}% 
-\contentsline {chapter}{\numberline {2}Literature Review}{7}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Cyber Attack on Firmware and Remote Firmware Update for Embedded Device}{7}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Blockchain}{10}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Skiplist}{12}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Skipchain}{14}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}Blockchain-based Firmware Update Framework}{16}{section.2.5}% 
-\contentsline {chapter}{\numberline {3}System Environment and Protocol Designs}{18}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Assumptions}{18}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Skipchain Overview}{19}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Architecture Design}{22}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}Protocol Design}{30}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Firmware Update Verification Protocol}{32}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Firmware Update Peer-to-Peer Verification Protocol}{34}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Firmware Update Execution Protocol}{37}{subsection.3.4.3}% 
-\contentsline {chapter}{\numberline {4}Prototype Design and Implementation}{39}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Prototype Design}{39}{section.4.1}% 
-\contentsline {subsection}{\numberline {4.1.1}Key Exchange Procedure}{39}{subsection.4.1.1}% 
-\contentsline {subsection}{\numberline {4.1.2}AES Encryption Function}{43}{subsection.4.1.2}% 
-\contentsline {subsection}{\numberline {4.1.3}AES Decryption Function}{44}{subsection.4.1.3}% 
-\contentsline {section}{\numberline {4.2}Prototype Implementation}{45}{section.4.2}% 
-\contentsline {chapter}{\numberline {5}Security and Performance Analyses}{47}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Informal Security Analysis}{49}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Protocol Verification Using Scyther Tool}{54}{section.5.2}% 
-\contentsline {subsection}{\numberline {5.2.1}Data Secrecy}{55}{subsection.5.2.1}% 
-\contentsline {subsection}{\numberline {5.2.2}Aliveness}{55}{subsection.5.2.2}% 
-\contentsline {subsection}{\numberline {5.2.3}Non-injective Agreement and Non-injective Synchronisation}{56}{subsection.5.2.3}% 
-\contentsline {section}{\numberline {5.3}Performance Analysis}{56}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Discussion}{59}{section.5.4}% 
-\contentsline {chapter}{\numberline {6}Conclusions}{61}{chapter.6}% 
-\contentsline {chapter}{References}{63}{chapter.6}% 
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Contribution}{4}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Outline}{4}{section.1.3}% 
+\contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Introduction to ASL}{5}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Previous 3D Based text to ASL system}{7}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}ASL Lexicon Video Dataset}{7}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}OpenPose}{10}{section.2.4}% 
+\contentsline {chapter}{References}{13}{figure.caption.12}% 

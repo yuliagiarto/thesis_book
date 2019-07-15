@@ -24,7 +24,7 @@
 \newcommand\myCname{福蘭呢}
 \newcommand\myEname{Fulan}
 \newcommand\myStudentID{M1065803}
-\newcommand\advisorCnameA{南宮明博士}
+\newcommand\advisorCnameA{楊傳凱博士}
 \newcommand\advisorEnameA{Dr.~Ming Nangong}
 \newcommand\advisorCnameB{李斯坦博士}
 \newcommand\advisorEnameB{Dr.~Stein Lee}
@@ -42,9 +42,9 @@
 \newcommand\cYear{九十四}
 \newcommand\cMonth{六}
 \newcommand\cDay{十}
-\newcommand\eYear{2006}
-\newcommand\eMonth{June}
-\newcommand\ePlace{Chungli, Taoyuan, Taiwan}
+\newcommand\eYear{2019}
+\newcommand\eMonth{July}
+\newcommand\ePlace{Taipei, Taiwan}
 
 % Following TeX input is to replace above default variable definitions
 \input{frontpages/my_names.tex}
@@ -77,6 +77,7 @@
 	\makebox[3cm][c]{\Huge{\deptCname}}\\	% Display department's Chinese name 顯示中文系所名
 	\vspace{0.5cm}
 	\end{minipage}%
+	% \hspace{4.5cm} \makebox[2cm][s]{\Large{學號：}}
 \\ 
 \rule{16cm}{3pt}
 \end{figure}
@@ -100,7 +101,7 @@
 % 	use \makebox to make sure 「研究生：」 and「指導教授：」 occupy the same width
 %
 \hspace{4.5cm} \makebox[3cm][s]{\Large{研 究 生：}}
-\Large{\myCname}	% Display author's Chinese name 顯示作者中文名
+\Large{\myEname}	% Display author's Chinese name 顯示作者中文名
 \hfill \makebox[1cm][s]{}\\
 %
 \vspace{0.3cm}
@@ -110,7 +111,7 @@
 %
 \vspace{1cm}
 \hspace{4.5cm} \makebox[3cm][s]{\Large{指導教授：}}
-\Large{\advisorCnameA}	% Display 1st adviser's name 顯示指導教授 A 中文名
+\Large{\advisorEnameA} 	% Display 1st adviser's name 顯示指導教授 A 中文名
 \hfill \makebox[1cm][s]{}\\
 %
 \ifx \advisorCnameB \itsempty	% Check if the 2nd adviser exists 判斷是否有共同指導的教授 B
@@ -483,7 +484,7 @@
 \newpage
 \chapter*{\protect\makebox[5cm][s]{\nameAckn}} %\makebox{} is fragile; need protect
 \addcontentsline{toc}{chapter}{\nameAckn}
-\input{frontpages/my_ackn.tex}
+% \input{frontpages/my_ackn.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       目錄 

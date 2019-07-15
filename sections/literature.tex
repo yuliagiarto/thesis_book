@@ -4,106 +4,91 @@
 \label{cha:2_literature}
 \parskip=0ex
 
-\section{Cyber Attack on Firmware and Remote Firmware Update for Embedded Device}
-\label{sec:1_issues}
+\section{Introduction to ASL}
+\label{sec:1_intro}
+In the early of 1800s, the population of deaf Americans was only about a few thousand. The Deaf communities made various signing systems and at that time, there was no standard sign language existed. These situasion are now called as an Old American Sign Language. The current used American Sign Language is actually related to this language~\cite{startAslCom}.
 
-In 2011, cyber attack on embedded battery controller firmware could possibly cause a security hazard such as overheated the battery and made it catch fire~\cite{batteryfirmware}. Embedded battery controller is usually used in Li-Ion and Lithium Polymer batteries. These types of battery are used in embedded devices, therefore the overheating battery can cause embedded devices be permanently broken.
+The beginning of the current used American Sign Language was started in 1814 with Dr. Thomas Hopkins Gallaudet, a minister from Hartford, Connecticut. The neighbor of him, named Mason Fitch Cogswell, had a nine years old deaf daughter, Alice Cogswell. Although Alice could not speak or hear, Dr. Gallaudet found that she was very smart, so that he wanted to teach her how to communicate. He then had a little success in making Alice enabled to read and spell, but he felt the method he used to teach was not effective. Therefore, Dr. Gallaudet gained a community support and money to go to Europe, in order to learn the best educational methods for the deaf, since there was a history of deaf education in Europe.
 
-\sloppy In 2013, Cui et al.~\cite{conf/ndss/2013} demonstrated how firmware update process can be exploited. The vulnerability allow the attacker to inject malicious firmware modifications into the embedded device. Cui et al. successfully exploited the third-party libraries in HP printer firmware images and injected malicious modification into the library. Their experiment result proved the capabilities of the running-malware in printer, such as: network reconnaissance, data exfiltration, and propagation to general purpose computer or other embedded device types. 
+Arrived at Europe, Gallaudet met three other figures, Abbe Sicard, Jean Massieu, and Laurent Clerc. Sicard was a successor of Abbe de l'Epee's at the National Insitute for Deaf-Mutes. The other two learned the deaf education from Sicard and became expert deaf educators. Gallaudet then learned how to teach the deaf from these instructors and yet he took private lessons with Clerc, the one of the best teachers at the institute.
 
-The other cyber attack that can be done in firmware update process is replay attack. During the firmware update process, attacker can duplicate the firmware binary from the vendor server and make the victim device check the unnecessary firmware update. The redundant checking process will drain the victim device battery. To resist replay attack, ~\cite{iotsecurity} use timestamp and nonce mechanism. Embedded device does not need to check the duplicate firmware update within the small interval of time by checking the timestamp of the request.
+After accomplished the study, Gallauded travelled back to America, accompanied by Clerc. He proposed to Clerc to join him because he knew Clerk would be a huge help in starting a school for the deaf, which is now known as the American School for the Deaf. This school was established in Gallaudet hometown, Hartford, in 1817 as the first public free deaf school in the U.S~\cite{wiki:xxx}. At this point, Gallaudet and Clerc had successfully make a huge milestone in American Deaf history.
 
-In the firmware update process, adversary can intersect the firmware binary from the vendor. Using reverse engineering algorithm, attacker can modify the firmware or inject malicious code and send it to the victim device. To keep the integrity and the authenticity of the firmware, firmware binary can be digitally signed by vendor using its private key. After downloading the firmware binary from the vendor's repository, embedded device can validate the digital signature using the attached public key. Once the firmware is validated, the update process is started.
+The name of the school was quickly spread around the U.S., making deaf students all over the country came together to study in this school. Just like the school in Europe, the students also brought their own local sign language to the school. American Sign Language derived from these signs and from French Sign Language that was learned from Clerc. Gallaudet retired in 1830, but the taught for the deaf was still continued by Clerc until the 1850s. By 1863, there were twenty two deaf schools in the U.S and most of them were founded by Clerc's students. The school founded by Clerc's students continued to use Clerc's deaf education methods.
 
-There are currently two methods to update the device's firmware, manual and automatic process. Manual process is vulnerable and not efficient, because user needs to manually download the firmware binary and install it to embedded device. Downloaded firmware integrity and authenticity can not be confirmed by un-experienced end user nor by the embedded device because it is manually downloaded and installed. On the other hand, automatic update over the Internet needs secure channel to ensure the integrity and authenticity of the firmware. Firmware Over The Air (FOTA) is typically used for automatic firmware update, general FOTA process is described in Figure ~\ref{fig:1_fota}. This automatic update process (remote firmware update) will update the latest firmware binary to the targeted device without manual operation.
+After Thomas Hopkins Gallaudet passed away in 1851, his youngest son, Edward Miner Gallaudet continued the work of him in deaf education. Edward then became a teacher at his father's school and in 1857, he was asked to be the headmaster of the Columbia Insitution for the Deaf and Dumb and the Blind in Washington, D.C. Edward also had a big role in deaf education since he presented an idea to provide a deaf college to Congress and in 1864, the permit to issue a college degrees for Columbia Insitute was passed. In 1864, the Columbia Insitute's first college division for the deaf named the National Deaf-Mute College was opened. The college was renamed to Gallaudet College tributed to Thomas Hopkins Gallaudet. Later in 1986, it was renamed to Gallaudet University, and it is known today as the first and only deaf univerity in the world.
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/img_firmware_update_fota.png}
-		\caption{Firmware Over The Air (FOTA) process diagram} 
-		\label{fig:1_fota}
-	\end{center}
-\end{figure}
+The other schools spreaded around the U.S also took roles to pass down their education from the American School for the Deaf to the next generation of deaf students the contact language that has known as today's American Sign Language. In 1900s, the nationwide network of deaf schools was completed. The community were given the opportunity to be with other deaf to share their sign language and cultural experiences without any communication barriers. The American Sign Language used today is a result of almost two hundred years of deaf people passing down their language from one to another generation that now become one of the most used languages in the U.S~\cite{dawnSignPress}.
 
-Remote firmware update uses two methods in its process, push and pull method. While push method is applicable for resource constrained device, pull method is more practical for more powerful with stable connection device~\cite{securefota}. Both methods use client-server architecture, in the push method, vendor repository as the server sends the firmware binary as chunks to the device as the client. After receiving the whole firmware binary, client will notify the server aby sending an error or success message. If there is no error, client can do the firmware update. In pull method, vendor repository as a server will provide a url to download the firmware binary to the gateway as the client. Once the whole firmware binary is downloaded, the error or success notification message will be sent back to the server. Then, client can do the firmware update if the download is successful.
+\section{Previous 3D Based text to ASL system}
+\label{sec:2_3dBased}
 
-\section{Blockchain}
-\label{sec:2_blockchain}
+\section{ASL Lexicon Video Dataset}
+\label{sec:3_ASLDataset}
+The American Sign Language Lexicon Video Dataset~\cite{ASLLexiconVideoDataset} was made primarily to provide a dictionary of Sign Language. Usually when we face an English word that we do not know, we will look it up in a dictionary. But, when an American Sign Language user encounters an unknown sign, the media for s/he to look it up is very limited.
 
-Based on Satoshi Nakamoto~\cite{Satoshi}, blockchain was originally created for peer-to-peer electronic cash payment transaction based on cryptographic proof instead of trust (to third party, such as Bank). Satoshi Nakamoto proposes a solution to prevent the double-spending problem in peer-to-peer network without a trusted third party. Each transaction data in the blockchain network is verified, time-stamped and linked with the previous data in the form of chained hash (proof-of-work). By doing so, blockchain technology can create a record that cannot be changed without redoing the hash-based proof-of-work.
-
-Bitcoin's proof-of-work uses Adam Back's Hashcash~\cite{hashcash} which is originally created to limit email spam and denial of service attack (DDoS). The block generation process in Bitcoin uses Hashcash as its proof-of-work. In order for a block to be accepted by network participants, miners must complete a proof-of-work which covers all of the data in the block. Miner is any node that lends their computational resource in order to secure the network and is rewarded with some bitcoin. The first miner who finds the nonce and successfully creates the new block will be rewarded.
-
-Bitcoin implement the proof-of-work ~\cite{proofofwork} by incremental nonce in the block until a value (nonce) is found, this nonce together with the transaction data must give block's hashed value (using SHA-256) the required zero bits. The example of how Bitcoin's proof-of-work iterates nonce is shown in Figure ~\ref{fig:2_proofofwork}. In this example, the required zero value is 3 and it must be in the beginning of the hash value. Total of 4251 hashes iteration is needed in this case, which is not a very hard computation (most computer can achieve at least 4 million hashes per second). That is why Bitcoin automatically varies the difficulty to keep a roughly constant rate of block generation. The difficulty of this proof-of-work is adjusted so as to limit the rate at which a new block can be generated in the network for every 10 minutes. Due to the very low probability of successful generation of a block, this makes it unpredictable which worker computer (miner) in the network will be able to generate the next block.
+The ASL Lexicon Video Dataset is a public dataset which contains thousands of distinct ASL signs in the form of high-quality video sequences. This dataset was made as a part of a project to provide a vision-based system used to look up the meaning of an ASL sign. The main part of this collection is its comprehenssiveness. Some approaches to recognize signs in a vision-based manner only could cover small vocabularies (20-300 signs) and often rely on color markers~\cite{vision1},~\cite{vision2}. Therefore, this dataset was hoped to be able to make a trend for developing vision-based methods that operate on markerless images and can cover a broader vocabulary.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/proofofwork.png}
-		\caption{Iterating nonce that make hashes value begin with a number of zero value~\cite{proofofwork}} 
-		\label{fig:2_proofofwork}
+		\includegraphics[width=1.0\textwidth]{figures/asl_4_side.png}
+		\caption{One of the ASL Lexicon Dataset frontal views (left), the face view (middle), and the side view (right), for a frame in a video sequence~\cite{ASLLexiconVideoDataset}.} 
+		\label{fig:1_ASLView}
 	\end{center}
 \end{figure}
 
-After the correct nonce and its corresponding hash value is found in the mining process, chaining algorithm is depicted in Figure ~\ref{fig:3_blockchainning}. Each block's hash value contains the hash value of previous block. As all blocks in the ledger are chained with its previous block, any modification on the value of any block will affect the whole blocks structure in the network. This mechanism makes blockchain tamper-proofing, means that no one can modify nor tamper a transaction once it is validated and recorded into blockchain.
+The total number of signs contained in the dataset has a similar scale and scope with the existing English-to-ASL dictionaries~\cite{gallaudetBook1},\cite{gallaudetBook2}. This dataset has at least one sign example figured by a native signer, for almost about 3,000 sign contained in the Gallaudet Dictionary of American Sign Language~\cite{gallaudetBook2}.
+
+Usually for their communication, ASL users sometimes spell out English words using the alphabet. Along with the existing dataset~\cite{gallaudetBook1},~\cite{gallaudetBook2}, in The ASL Lexicon Video dataset, the fingerspelled signs were not included, as they were counted as "loan signs".
+
+In the described dataset, each sign was performed by native ASL signers. The number of involved native ASL users for this dataset was four people. The video sequences were collected using a four-camera system that concurrently captured two-frontal views, one side view and one view zoomed in on the face of the signer. For the side view and the two frontal views, the upper body took over a relatively large part of the scene frames. For the face view, the frontal view of the face which took over the large part of the scene frames. All video sequences were recorded and provided in color.
+
+The video of the side view, the first frontal view, and the face view was captured at 60 frames per second, and each frame has a resolution of 640x480 pixels. Then, for the video of the second frontal view, it was captured at 30 frames per second with a resolution of 1600x1200 pixels per frame. The second frontal view was purposely made to facilitate a more detail display of the hands, compared to the 640x480 views.
+
+The dataset were stored in a lossless compression format and it can be read using a C++ code provided on the official website. A compressed QuickTime version of video sequences was also created, with purpose to enable the viewers to quickly browse the video.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/block-chainning.png}
-		\caption{Nakamoto's chaining block diagram~\ref{fig:3_blockchainning}} 
-		\label{fig:3_blockchainning}
+		\includegraphics[width=1.0\textwidth]{figures/excelASLDataset.png}
+		\caption{Annotation of ASL Lexicon Video Dataset. Retrieved from the annotation file of~\cite{ASLLexiconVideoDataset}.} 
+		\label{fig:2_ASLAnnotation}
 	\end{center}
 \end{figure}
 
-\section{Skiplist}
-\label{sec:3_skiplist}
+An excel file showing the annotation was also provided. Since ASL signs have no written form, so the class label for each sign were written in an approximated English, called a "gloss". A gloss could possibly assign to two different signs if they corresponded to the same ASL Lexical item.
 
-\textit{Skiplist} was first described in 1989 by William Pugh ~\cite{skiplistOriginate}. Skiplist is a data structure that allows fast search within an ordered sequence of elements ~\cite{wiki:skiplist}, fast search is possible by skipping over a few element rather than searching linear number of steps. The structure of a skiplist is shown in Figure ~\ref{fig:4_skipliststructure}. As an example, the search process to find the fifth node, the skiplist firstly traverse a link of width 1 at the top level. Now four more steps are needed, but the next span on this level is too large (10), so it will drop one level to level 3. The algorithm once again traverse one link of width 3. Since the next step of width 2 is skpping too far (becomes 6), instead of traversing in the same level, it will drop down to the bottom level. Lastly the skiplist will traverse the final link of width 1 to reach the fifth link (target).
+A video sequence was stored multiple signs. For each sign in a video sequence, the annotation was written its start and end frames, the gloss, whether the sign is one-handed or two-handed, and a signer ID. The signer IDs were written to allow researchers to do experiments for user-dependent and user-independent sign recognition.
+
+\section{OpenPose}
+\label{sec:4_openpose}
+OpenPose~\cite{cao2018openpose} is an open library to detect multi-person pose estimation. It was claimed as the first bottom-up representation of association scores using a set of 2D vector fields that encode the location and orientation of limbs shown on the image domain, named Part Affinity Fields.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/skiplistSearch.png}
-		\caption{Skiplist structure with span between two same-level nodes~\ref{fig:4_skipliststructure}} 
-		\label{fig:4_skipliststructure}
+		\includegraphics[width=1.0\textwidth]{figures/paf.png}
+		\caption{Left: Part Affinity Fields corresponding to the limb that connected elbow and wrist. Right: a 2D vector in each pixel of every PAF which encoded the position and orientation of the limbs~\cite{cao2018openpose}.} 
+		\label{fig:3_OpenPose}
 	\end{center}
 \end{figure}
 
-Based on how the insertion process, there are two types of skiplist. In deterministic skiplist, user needs to define how the insertion process needs to be done. For example J. Ian Munro~\cite{deterministicSkiplist} defined "1-2 skiplist", "1-2 skiplist" structure requires either one or two nodes of height (h-1) exist between any two nodes of height {\emph{h}} ({\emph{h}} > 1). The deterministic skiplist structure is shown at Figure ~\ref{fig:5_deterministicSkiplist}
+This research had some improvements compared to its previous version~\cite{cao2017realtime}. From this newer version of work, Cao et. al proved that to achieve a maximum accuracy, the most important part in the work is to refine the Part Affinity Fields, while ignoring the body part prediction refinement. The first body and food keypoint detector combination was also propposed in this research, created based on foot dataset annotation that will be publicly released. The OpenPose was claimed as the first open source library which able to detect 2D multi-person pose, including the body, foot, hand, and facial keypoints, in a realtime manner.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/deterministicSkiplist.png}
-		\caption{(a) There is a node with height of two between two nodes with height of three. (b) There are two nodes with height of one between two nodes of height of two~\cite{deterministicSkiplist}} 
-		\label{fig:5_deterministicSkiplist}
+		\includegraphics[width=1.0\textwidth]{figures/openposesystem.png}
+		\caption{Overall system flow. (a) Entire image is taken as the input for a CNN to predict the join (b)confidence maps for body part is detected (c) detection of PAFs (d) bipartite matching to associate body part candidates (e) assembly of PAFs into full body poses for all detected people in the image~\cite{cao2018openpose}.} 
+		\label{fig:4_OpenPoseFlow}
 	\end{center}
 \end{figure}
 
-On the other hand, a randomized skiplist defines the new node height based on probabilistic of a coin toss. It will add the height of the newly inserted node until the coin-toss lands on tail or the height reach the maximum-defined-height. The randommess makes the average insert and update cost for the skiplist is low. Randomized skiplist can achieve simple implementation but requires larger storage. 
+The OpenPose overall system can be seen at Fig. 2.4. The input is a color image (Fis. 2.4a) and the output is the 2D locations of the anatomical keypoints for each person in the image (Fig. 2.4e). The input image, firstly is forwarded to a feedforward network to predict a set of 2D confidence maps of body part locations (Fig. 2.4b), and a set of 2D vector PAFs (Fig. 2.4c), which encode the association degree between body parts. Lastly, greedy inference (Fig. 2.4d) will parse the confidence maps and the affinity fields to output the 2D keypoints for all people in the input image.
 
-\section{Skipchain}
-\label{sec:4_Skipchain}
-One of the key characteristic of blockchain is the traceable asset. It allows all blockchain's participants know where the asset come from and how it change overtime. However, to verify an asset will require user's device to be online, connected to the Internet and to pay bandwidth and power costs to maintain the connectivity with multiple nodes on blockchain network~\cite{Skipchain}. User can to join as a full node, maintaining a mirror copy of the entire blockchain to verify or trace an asset. As an option, user can join as a lightweight node and download partial amount of the entire blockchain data from connected full node. However, it is difficult for low power, limited storage and limited connection device to join the blockchain network even as lightweight node.
-
-Joining a blockchain network as a lightweight node is not without risk, a compromised full node can isolate the connected lightweight node using a "fake" view of blockchain. The lightweight node can do a secure verification by synchronizing with multiple full node, but the compromised full node can achieve it goals by deceiving the isolated lightweight node during the "offline" state. The blockchain node remain vulnerable to isolation attack because the fundamental problem is that the current blockchain can never be validated in any absolute ways, but only relative to the perspective from another node.
-
-To tackle this issue, Chainiac~\cite{chainiac} introduced skipchain, a novel cryptographic blockchain structure that adapts the skiplist idea by adding long-distance links both forward and backward in time as illustrated in Figure ~\ref{fig:6_skipchainStructure}. When Chainiac creates new block, it will create additional hash link to farther backward in time. On the same time, Chainiac also creates long-distance forward link via collective signatures~\cite{cosigning}. With long-distance forward and backward link, skipchain technology becomes cryptographically traversable in both directions. 
+Compared to the existing 2D body pose estimation libraries, such as Mask R-CNN or Alpha-Pose, OpenPose has many superiorities. The existing libraries require the users to implement most of their pipeline, provide their own frame reader, a media to display the results, and provide the file generation for storing the results in JSON or XML, etc. The existing facial and body keypoint detectors are also not combined, so different libraries are required for each purpose. Different from the mentioned works, OpenPose can overcome all of the problems. It is able to be run on many different platforms, such as, Ubuntu, Windows, Mac OSX, and embedded systems. Different hardware, such as CUDA GPUs, OpenCL GPUs, and CPU only devices are also supported by this framework. The input types, images, video, webcam, and IP camera streaming are also served to be chosen by the user. The users can also select to display the results or save them on the disk. They can also choose which part of the human body they want to detect. Pixel coordinate normalization, number of GPUs to be used and frames skipping options are also the superiorities of this library.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{figures/skipchainStructure.png}
-		\caption{Skipchain structure~\cite{chainiac}} 
-		\label{fig:6_skipchainStructure}
+		\includegraphics[width=0.8\textwidth]{figures/openposeeg.png}
+		\caption{Output of OpenPose, body, foot, hand, and facial keypoints are detected in a real-time manner.~\cite{cao2018openpose}.} 
+		\label{fig:4_OpenPoseFlow}
 	\end{center}
 \end{figure}
-
-Using this skipchain characteristic, node as a client can efficiently prove the correctness of a transaction anywhere in time with respect to other party reference point on the blockchain, in a logaritmic number of steps, regardless of which node has a more up-to-date data view of the blockchain~\cite{Skipchain}. For example, a gateway in a smart home environment wants to show a new firmware update to a connected IoT device. In this case, the IoT device has limitations to connect to the Internet and to synchronize with the other node. The IoT device can not store partial part of the blockchain data due to its limited storage. The gateway can simply sends to the IoT device a small number of collectively signed forward links through a peer-to-peer connection to prove securely that the new firmware updates is indeed on the blockchain. 
-
-\section{Blockchain-based Firmware Update Framework}
-\label{sec:5_proposedFramework}
-
-In this section, previous researches on the firmware update mechanism for embedded devices based on blockchain infrastructure are introduced. Lee et al.~\cite{lee} introduced the blockchain-based firmware verification and update schemes for embedded devices in IoT environment. Lee et al. mentioned that excessive network traffic may occur when large number of embedded devices downloading the latest firmware simultaneously from a dedicated firmware update server. This problem leads Lee et al. to utilize blockchain network concept, where a device can request a firmware update from a decentralized peer-to-peer network.
-
-\sloppy In~\cite{lee} architecture, embedded device acted as full node in the blockchain network which was difficult to be implemented in real world scenario. Because the embedded devices with low-power, limited storage and limited connection to the Internet are difficult to maintain connection with the other node in blockchain network. It is also not possible for the embedded device to store growing blockchain data. Moreover, when there are many kind of embedded device with different requirement of firmware, it will take a long time to make the download request because this scheme used pull-method. In result, this scheme might not efficient for heterogeneous IoT ecosystem.
-
-Boudguiga et al.~\cite{boudguiga} investigated that it was possible to use blockchain infrastructure to provide firmware update to several embedded devices belonging to different manufacturer. This scheme relied on trusted node in the blockchain to validate an update innocuousness before its transmission to the end objects. The trusted node checks that the new update does not contain bugs and resist to known attack.
-
-There are two architectures introduced by~\cite{boudguiga}. In the first architecture, each vendor was expected to provide at least one worker node in the blockchain network. An embedded device could periodically pull the blockchain by random picks the node and check the firmware version. The mentioned trusted node takes place in the second architecture as a refinement from the first architecture. The trusted node directly receives new firmware binary from the vendor, then notifies the corresponding embedded devices after the validation process completed. The corresponding device can download the valid firmware binary and do the firmware update.

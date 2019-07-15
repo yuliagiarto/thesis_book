@@ -1,26 +1,15 @@
 \begin{thebibliography}{10}
 
-\bibitem{proofofwork}
-S.~Nakamoto, ``Proof of work.'' \url{https://en.bitcoin.it/wiki/Proof_of_work}.
+\bibitem{ASLLexiconVideoDataset}
+V.~{Athitsos}, C.~{Neidle}, S.~{Sclaroff}, J.~{Nash}, A.~{Stefan}, , and
+  A.~{Thangali}, ``The american sign language lexicon video dataset,'' in {\em
+  2008 IEEE Computer Society Conference on Computer Vision and Pattern
+  Recognition Workshops}, pp.~1--8, June 2008.
 
-\bibitem{deterministicSkiplist}
-J.~I. Munro, T.~Papadakis, and R.~Sedgewick, ``Deterministic skip lists,'' in
-  {\em Proceedings of the Third Annual ACM-SIAM Symposium on Discrete
-  Algorithms}, SODA '92, (Philadelphia, PA, USA), pp.~367--375, Society for
-  Industrial and Applied Mathematics, 1992.
-
-\bibitem{chainiac}
-K.~Nikitin, E.~Kokoris-Kogias, P.~Jovanovic, L.~Gasser, N.~Gailly, I.~Khoffi,
-  J.~Cappos, and B.~Ford, ``Chainiac: Proactive software-update transparency
-  via collectively signed skipchains and verified builds.'' Cryptology ePrint
-  Archive, Report 2017/648, 2017.
-\newblock \url{https://eprint.iacr.org/2017/648}.
-
-\bibitem{cosigning}
-E.~Syta, I.~Tamas, D.~Visher, D.~I. Wolinsky, P.~Jovanovic, L.~Gasser,
-  N.~Gailly, I.~Khoffi, and B.~Ford, ``Keeping authorities "honest or bust"
-  with decentralized witness cosigning,'' in {\em 2016 IEEE Symposium on
-  Security and Privacy (SP)}, pp.~526--545, May 2016.
+\bibitem{cao2018openpose}
+Z.~Cao, G.~Hidalgo, T.~Simon, S.-E. Wei, and Y.~Sheikh, ``Open{P}ose: realtime
+  multi-person 2{D} pose estimation using {P}art {A}ffinity {F}ields,'' in {\em
+  arXiv preprint arXiv:1812.08008}, 2018.
 
 \bibitem{deafnessAndHearingLoss}
 W.~H. Organization, ``Deafness and hearing loss,'' 03 2019.
@@ -29,120 +18,51 @@ W.~H. Organization, ``Deafness and hearing loss,'' 03 2019.
 L.-M.~D. Sandler~Wendy, {\em Sign Language and Linguistic Universals}.
 \newblock 2006.
 
-\bibitem{ASLLexiconVideoDataset}
-V.~{Athitsos}, C.~{Neidle}, S.~{Sclaroff}, J.~{Nash}, A.~{Stefan}, , and
-  A.~{Thangali}, ``The american sign language lexicon video dataset,'' in {\em
-  2008 IEEE Computer Society Conference on Computer Vision and Pattern
-  Recognition Workshops}, pp.~1--8, June 2008.
+\bibitem{bureauOfLaborStat}
+U.~D. o.~L. Bureau~of Labor~Statistics, ``Occupational outlook handbook:
+  Interpreters and translators,'' 04 2019.
+\newblock [Online; accessed 01-July-2019].
 
-\bibitem{Gartner14}
-Gartner, ``{Gartner Says 8.4 Billion Connected "Things" Will Be in Use in 2017,
-  Up 31 Percent From 2016}.''
-  \url{https://www.gartner.com/newsroom/id/3598917}, 2014.
-\newblock [Online; accessed 30-November-2018].
+\bibitem{startAslCom}
+M.~Jay, ``History of american sign language,'' 10 2010.
+\newblock [Online; accessed 09-July-2019].
+
+\bibitem{wiki:xxx}
+{Wikipedia contributors}, ``American sign language.''
+  \url{https://en.wikipedia.org/w/index.php?title=American_Sign_Language&oldid=904706391},
+  2019.
+\newblock [Online; accessed 9-July-2019].
+
+\bibitem{dawnSignPress}
+DawnSignPress, ``History of american sign language,'' 08 2016.
+\newblock [Online; accessed 09-July-2019].
+
+\bibitem{vision1}
+B.~Bauer and K.-F. Kraiss, ``Towards an automatic sign language recognition
+  system using subunits,'' in {\em Revised Papers from the International
+  Gesture Workshop on Gesture and Sign Languages in Human-Computer
+  Interaction}, GW '01, (London, UK, UK), pp.~64--75, Springer-Verlag, 2002.
+
+\bibitem{vision2}
+{Jiangwen Deng} and H.~T. {Tsui}, ``A pca/mda scheme for hand posture
+  recognition,'' in {\em Proceedings of Fifth IEEE International Conference on
+  Automatic Face Gesture Recognition}, pp.~294--299, May 2002.
+
+\bibitem{gallaudetBook1}
+M.~G.~B. R.~A.~Tennant, {\em The American Sign Language Handshape Dictionary}.
+\newblock Gallaudet University Press, 2010.
+
+\bibitem{gallaudetBook2}
+C.~Valli, {\em The Gallaudet Dictionary of American Sign Language}.
+\newblock Gallaudet University Press, 2006.
+
+\bibitem{cao2017realtime}
+Z.~Cao, T.~Simon, S.-E. Wei, and Y.~Sheikh, ``Realtime multi-person 2d pose
+  estimation using part affinity fields,'' in {\em CVPR}, 2017.
 
 \bibitem{conf/ndss/2013}
 A.~Cui, M.~Costello, and S.~J. Stolfo, ``When firmware modifications attack: A
   case study of embedded exploitation.,'' in {\em NDSS\/}
   \cite{conf/ndss/2013}.
-
-\bibitem{batteryfirmware}
-C.~Miller and A.~Labs, ``Battery firmware hacking.''
-  \url{https://media.blackhat.com/bh-us-11/Miller/BH_US_11_Miller_Battery_Firmware_Public_WP.pdf/},
-  2011.
-
-\bibitem{hddfirmware}
-K.~Zetter, ``How the nsa's firmware hacking works and why it's so unsettling.''
-  \url{https://www.wired.com/2015/02/nsa-firmware-hacking//}, 2015.
-
-\bibitem{Rashedul16}
-R.~Hassan, K.~Markantonakis, and R.~N. Akram, ``Can you call the software in
-  your device be firmware?,'' IEEE 13th International Conference on e-Business
-  Engineering (ICEBE), 2016.
-
-\bibitem{Byung16}
-B.-C. Choi, S.-H. Lee, J.-C. Na, and J.-H. Lee, ``Secure firmware validation
-  and update for consumer devices in home networking,'' pp.~39--44, IEEE
-  Transactions on Consumer Electronics, 2016.
-
-\bibitem{ProofPoint14}
-P.~Point, ``Proofpoint uncovers internet of things (iot) cyberattack.''
-  \url{https://www.proofpoint.com/us/proofpoint-uncovers-internet-things-iot-cyberattack},
-  2014.
-
-\bibitem{Satoshi}
-S.~Nakamoto, ``Bitcoin: a peer-to-peer electronic cash system.''
-  \url{https://bitcoin.org/bitcoin.pdf}.
-
-\bibitem{Skipchain}
-B.~Ford, ``How do you know it's on the blockchain? with a skipchain.''
-  \url{https://bford.github.io/2017/08/01/skipchain/}.
-
-\bibitem{securefota}
-K.~Doddapaneni, R.~Lakkundi, S.~Rao, S.~G. Kulkarni, and B.~Bhat, ``Secure fota
-  object for iot,'' in {\em 2017 IEEE 42nd Conference on Local Computer
-  Networks Workshops (LCN Workshops)}, pp.~154--159, Oct 2017.
-
-\bibitem{hashcash}
-A.~Back, ``Hashcash - a denial of service counter-measure.''
-  \url{http://www.hashcash.org/papers/hashcash.pdf}, 2002.
-
-\bibitem{skiplistOriginate}
-{William Pugh}, ``Concurrent maintenance of skip lists.''
-  \url{https://drum.lib.umd.edu/handle/1903/542}, 1989.
-
-\bibitem{wiki:skiplist}
-{Wikipedia}, ``Skip list --- {W}ikipedia{,} the free encyclopedia.''
-\newblock [Online; accessed 2-December-2018].
-
-\bibitem{lee}
-B.~Lee, S.~Malik, S.~Wi, and J.-H. Lee, ``Firmware verification of embedded
-  devices based on a blockchain,'' in {\em Quality, Reliability, Security and
-  Robustness in Heterogeneous Networks} (J.-H. Lee and S.~Pack, eds.), (Cham),
-  pp.~52--61, Springer International Publishing, 2017.
-
-\bibitem{boudguiga}
-A.~Boudguiga, N.~Bouzerna, L.~Granboulan, A.~Olivereau, F.~Quesnel, A.~Roger,
-  and R.~Sirdey, ``Towards better availability and accountability for iot
-  updates by means of a blockchain,'' in {\em 2017 IEEE European Symposium on
-  Security and Privacy Workshops (EuroS PW)}, April 2017.
-
-\bibitem{schnorrsign}
-C.~P. Schnorr, ``Efficient identification and signatures for smart cards,'' in
-  {\em Advances in Cryptology --- CRYPTO' 89 Proceedings} (G.~Brassard, ed.),
-  (New York, NY), pp.~239--252, Springer New York, 1990.
-
-\bibitem{Diffie:2006:NDC:2263321.2269104}
-W.~Diffie and M.~Hellman, ``New directions in cryptography,'' {\em IEEE Trans.
-  Inf. Theor.}, vol.~22, pp.~644--654, Sept. 2006.
-
-\bibitem{wiki:pbkdf2}
-{Wikipedia}, ``Pbkdf2.''
-\newblock [Online; accessed 20-December-2018].
-
-\bibitem{yohan}
-A.~Yohan, N.-W. Lo, and S.~Achawapong, ``Blockchain-based firmware update
-  framework for internet-of-things environment,'' in {\em Proceedings of the
-  2018 International Conference on Information and Knowledge Engineering},
-  IKE'18, pp.~151--155, CSREA Press, 2018.
-
-\bibitem{nisyncandnyaggre}
-{J. F. Cremers, C and Mauw, Sjouke and Vink, Erik}, ``Dening authentication in
-  a trace model,'' 07 2004.
-
-\bibitem{cryptolib}
-W.~Dai, ``Crypto++ 5.6.0 benchmarks.''
-  \url{https://www.cryptopp.com/benchmarks.html}, 2009.
-
-\bibitem{signatureScheme}
-K.-H. Yeh, C.~Su, K.-K.~R. Choo, and W.~Chiu, ``A novel certificateless
-  signature scheme for smart objects in the internet-of-things,'' in {\em
-  MDPI}, (Philadelphia, PA, USA), pp.~367--375, Society for Industrial and
-  Applied Mathematics, 1992.
-
-\bibitem{asymmetricScheme}
-G.~S. Tanwar, G.~Singh, and V.~Gaur, ``Secured encryption - concept and
-  challenge,'' {\em International Journal of Computer Application}, vol.~2, May
-  2010.
 
 \end{thebibliography}
